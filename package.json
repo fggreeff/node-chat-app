@@ -1,0 +1,32 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Node express chat app using socket.io",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "8.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fggreeff/node-chat-app.git"
+  },
+  "keywords": [
+    "chat",
+    "app",
+    "socket.io"
+  ],
+  "author": "Francois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fggreeff/node-chat-app/issues"
+  },
+  "homepage": "https://github.com/fggreeff/node-chat-app#readme"
+}
