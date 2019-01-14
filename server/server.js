@@ -1,17 +1,33 @@
 const path = require('path')
 const express = require('express')
-
-const { config } = require('./config')
+const socketIO = require('socket.io')
 
 const publicPath = path.join(__dirname, '../public')
+console.log(publicPath)
 
+const port = process.env.PORT || 5000
 var app = express()
-const port = process.env.PORT
+// var server = http.createServer((app))
+const server = app.listen(port, () => {
+  console.log(`Server is up on ${port}`)
+})
+var io = socketIO(server)
 
 app.use(express.static(publicPath))
 
-app.listen(port, () => {
-  console.log(`started on port ${port}`)
-})
+io.on('connection', socket => {
+  console.log('New user connected')
 
-module.exports = { app }
+  socket.on('createMessage', message => {
+    console.log('createMessage: server got your message', message)
+    io.emit('newMessage', {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    })
+  })
+
+  socket.on('disconnect', () => {
+    console.log('User was disconnected')
+  })
+})
