@@ -18,9 +18,6 @@ var io = socketIO(server)
 
 app.use(express.static(publicPath))
 
-generateMessage.from = 'Admin'
-generateMessage.text = 'Welcome to the chat app'
-
 io.on('connection', socket => {
   console.log('New user connected')
 
@@ -32,12 +29,11 @@ io.on('connection', socket => {
     generateMessage('Admin', 'New user joined')
   )
 
-  socket.on('createMessage', generateMessage => {
-    io.emit('newMessage', {
-      from: generateMessage.from,
-      text: generateMessage.text,
-      createdAt: generateMessage.createdAt
-    })
+  socket.on('createMessage', (message, callback) => {
+    console.log('createMessage', message)
+
+    io.emit('newMessage', generateMessage(message.from, message.text))
+    callback('THis is from the server')
   })
 
   socket.on('disconnect', () => {
