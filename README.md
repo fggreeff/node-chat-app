@@ -1,6 +1,8 @@
 # node-chat-app
 
-Using socket.io in a node express web app
+Technologies: Using socket.io in a node express web app, alongside the Geolocation API to send lat & long coordinates
+
+The chat application allows you to chat and send your location to other users.
 
 ## Getting started
 
@@ -18,6 +20,14 @@ Start the application
 npm start
 ```
 
+### Running test
+
+Run unit tests locally
+
+```
+npm t
+```
+
 ### Postman collection
 
 All endpoints are listed in the following collection:
@@ -26,7 +36,7 @@ All endpoints are listed in the following collection:
 
 # Deployment
 
-Access a deployed version
+Access a deployed version (Demo)
 [Heroku](https://murmuring-inlet-65940.herokuapp.com/)
 
 Alternatively, deploy the application to your own Heroku account
@@ -39,3 +49,5 @@ Open URL `heroku open`
 ## Source
 
 [Resource](https://www.udemy.com/the-complete-nodejs-developer-course-2)
+
+[Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
