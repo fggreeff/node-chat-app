@@ -16,14 +16,24 @@ class Users {
     return user
   }
 
-  //   removeUser(id) {}
+  removeUser(id) {
+    var users = this.users.filter(user => {
+      return user.id === id
+    })
+  }
 
-  //   getUser(id) {
-  //     this.users.iterable.find(id => {})
-  //   }
-  //   getUserList(room) {
-  //     this.users.iterable.find(room => {})
-  //   }
+  getUser(id) {
+    var users = this.users.filter(user => {
+      if (user.id === id) return user.name
+    })
+  }
+
+  getUserList(room) {
+    var users = this.users.filter(user => user.room === room)
+    var namesArray = users.map(user => user.name)
+
+    return namesArray
+  }
 }
 
 module.exports = { Users }
