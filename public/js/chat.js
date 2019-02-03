@@ -23,6 +23,9 @@ function scrollToBottom() {
 socket.on('connect', function() {
   var params = jQuery.deparam(window.location.search)
 
+  var roomId = jQuery('#room')
+  roomId.text(`Room ${params.room}`)
+
   socket.emit('join', params, function(err) {
     if (err) {
       alert(err)
@@ -114,4 +117,10 @@ locationButton.on('click', function() {
       alert('Unable to fetch location.')
     }
   )
+})
+
+var exitRoomButton = jQuery('#exit-room')
+exitRoomButton.on('click', function() {
+  socket.emit('disconnect')
+  window.location.href = '/'
 })

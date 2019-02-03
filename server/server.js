@@ -24,6 +24,8 @@ app.use(express.static(publicPath))
 io.on('connection', socket => {
   console.log('New user connected')
 
+  io.emit('updateChatList', users.getRoomList())
+
   socket.on('join', (params, callback) => {
     if (users.getUserInList(params.room, params.name)) {
       return callback('User name already exists in this room.')
@@ -42,8 +44,6 @@ io.on('connection', socket => {
       'newMessage',
       generateMessage('Admin', 'Welcome to the chat app')
     )
-
-    io.emit('updateChatList', users.getRoomList())
 
     //broadcast call to the room
     socket.broadcast
