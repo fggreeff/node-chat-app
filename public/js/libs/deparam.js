@@ -12,6 +12,7 @@
         uri = window.location.search
       }
       var queryString = {}
+      uri = uri.toLowerCase()
       uri.replace(new RegExp('([^?=&]+)(=([^&#]*))?', 'g'), function(
         $0,
         $1,
