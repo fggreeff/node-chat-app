@@ -23,8 +23,8 @@ function scrollToBottom() {
 socket.on('connect', function() {
   var params = jQuery.deparam(window.location.search)
 
-  var room = jQuery('#room')
-  room.append(jQuery('<h3></h3>').text(params.room))
+  var roomId = jQuery('#room')
+  roomId.text(`Room ${params.room}`)
 
   socket.emit('join', params, function(err) {
     if (err) {
