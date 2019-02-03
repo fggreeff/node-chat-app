@@ -80,4 +80,10 @@ describe('Users', () => {
 
     expect(user).not.toBeDefined()
   })
+
+  it('should return list of rooms', () => {
+    var rooms = users.getRoomList()
+
+    expect(rooms.length).toBe(3)
+  })
 })

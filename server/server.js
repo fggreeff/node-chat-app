@@ -43,6 +43,8 @@ io.on('connection', socket => {
       generateMessage('Admin', 'Welcome to the chat app')
     )
 
+    io.emit('updateChatList', users.getRoomList())
+
     //broadcast call to the room
     socket.broadcast
       .to(params.room)

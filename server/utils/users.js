@@ -32,6 +32,10 @@ class Users {
 
     if (usersArr.indexOf(name) > -1) return name
   }
+
+  getRoomList() {
+    return this.users.map(user => user.room)
+  }
 }
 
 module.exports = { Users }
