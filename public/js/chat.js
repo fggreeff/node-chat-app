@@ -33,6 +33,10 @@ socket.on('connect', function() {
   })
 })
 
+socket.on('updateUserList', function(users) {
+  console.log('users list', users)
+})
+
 socket.on('disconnect', function() {
   console.log('Disconnected from server')
 })
