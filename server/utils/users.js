@@ -26,6 +26,12 @@ class Users {
 
     return namesArray
   }
+
+  getUserInList(room, name) {
+    var usersArr = this.getUserList(room)
+
+    if (usersArr.indexOf(name) > -1) return name
+  }
 }
 
 module.exports = { Users }

@@ -64,4 +64,20 @@ describe('Users', () => {
 
     expect(user).not.toBeDefined()
   })
+
+  it('should find user in list', () => {
+    var userName = 'Jenny'
+    var room = 'HON'
+    var user = users.getUserInList(room, userName)
+
+    expect(user).toBe('Jenny')
+  })
+
+  it('should not find user in list', () => {
+    var userName = 'Ray'
+    var room = 'HON'
+    var user = users.getUserInList(room, userName)
+
+    expect(user).not.toBeDefined()
+  })
 })
