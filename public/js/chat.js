@@ -115,3 +115,9 @@ locationButton.on('click', function() {
     }
   )
 })
+
+var exitRoomButton = jQuery('#exit-room')
+exitRoomButton.on('click', function() {
+  socket.emit('disconnect')
+  window.location.href = '/'
+})
